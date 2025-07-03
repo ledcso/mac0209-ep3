@@ -14,18 +14,16 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Relatório do EP 3 de MAC0209}
-\author{Andre Luis Neves, 15493840; Joao Victor Alonso de Mello, 10951790; Luis Vergara, 15472544}
+\author{Andre Luis Neves - 15493840 \\ Joao Victor Alonso de Mello - 10951790 \\ Luis Claudio Vergara 15472544}
 
 \begin{document}
 \maketitle
 
 
 \begin{abstract}
-  Nesse EP, nós medimos a frequencia do WiFi nos entornos do Instituto de Matemática e Estatística
-  da Universidade de Sao Paulo (IME-USP). Usamos esses dados para gerar um mapa de calor (heatmap)
-  no mapa do IME-USP. Além disso, geramos um video sobre a colecao de dados. 
-
-Para o video, \href{https://youtube.com}{assistir no YouTube}.
+  Nesse EP, medimos o RSSI do WiFi nos entornos do IME-USP. Usamos esses dados para analisar as sombras de sinal de WiFi do Eduroam presentes na região.
+  
+  O vídeo mostrando o experimento está disponível \href{https://youtube.com}{aqui}.
 
 \end{abstract}
 
@@ -36,30 +34,34 @@ Para o video, \href{https://youtube.com}{assistir no YouTube}.
 \newpage
 
 \section{Introdução}
-O WiFi é uma ferramenta essencial nas Universidades públicas brasileiras, e Universidades no geral.
-Portanto, ter e manter uma boa frequencia e intensidade de sinal nos campus é de alta importância
-tanto para os professores quanto para os alunos.  
+O WiFi é uma ferramenta essencial nas universidades. Dessa forma, manter uma boa intensidade de sinal no campus é de bastante importante, tanto para os professores quanto para os alunos, auxiliando em aulas e pesquisas.
 
-Em particular, no IME-USP, há varios investimentos nos últimos anos que dependem de estudos e coleta
-de dados para poder ser o mais eficientes possíveis. 
+Em particular, o IME teve vários investimentos nessa área nos últimos anos. Para conseguir maximizar a eficiência desses gastos, são necessários estudos e coleta de dados.
+
+Assim, esse experimento visa mostrar potenciais sombras de WiFi do Eduroam, o que ajuda a identificar os melhores pontos para se colocar repetidoras de sinal.
 
 \section{Objetivos}
-O objetivo principal desse projeto é coletar dados e processar eles para poder ter uma noção dos
-pontos dos predios do IME-USP onde o sinal de WiFi é boa, e aqueles pontos onde há problemas de
-conexão ou que tem baixa intensidade de sinal.  
+O objetivo principal desse projeto é coletar dados e processá-los para entender quais pontos em torno do IME o sinal de WiFi e aqueles pontos onde há problemas de conexão.
 
-% \section{Cronograma}
+Assim, é dividido em duas etapas: coleta de dados do RSSI e do GPS, e análise dos dados por meio de \textit{heatmaps} e gráficos de RSSI ao longo do tempo.
 
-% Nesta seção, o grupo deve apresentar a Gantt Chartt de planejamento para o desenvolvimento do EP. Esta seção é a única obrigatória para o EP "Preparação do EP".
+\section{Cronograma}
+
+Começamos o trabalho no dia da gravação inicial dos vídeos, dia 09/06. A partir disso, definimos o cronograma com os prazos da seguinte forma:
+
+\begin{itemize}
+    \item Código inicial para testar o plot dos mapas: 16/06
+    \item Coleta oficial dos dados com o professor: 16/06
+    \item Versão finalizada do código e do vídeo: 28/06
+    \item Escrita do relatório: 02/07
+\end{itemize}
 
 \section{Dados e métodos}
-Nosso método principal de medição foi celulares smartphone juntamente com o aplicativo SideSeeing.
-Mais informações sobre o aplicativo SideSeeing estão disponíveis no seguinte link:
-https://arxiv.org/abs/2407.06464
+A aquisição de dados foi feita por meio do aplicativo do projeto SideSeeing, usando um colete acoplado ao celular.
 
-Junto com outros colegas, caminhamos ao redor do prédio do IME-USP, tanto por fora quanto por
-dentro, usando um colete com um smartphone que tem o aplicativo SideSeeing instalado nele. A coleta
-de dados durou aproximadamente 2 horas.  
+Caminhamos em conjunto com outras pessoas que também estavam coletando dados ao redor do IME em três rotas distintas, a saber: ao redor do quarteirão do IME, ao redor dos blocos A, B e C, e dentro desses blocos.
+
+A análise de dados produz um heatmap, um gráfico do RSSI ao longo do tempo, um gráfico de média dinâmica do RSSI nas proximidades de cada lugar e retorna a média e desvio padrão da intensidade do sinal ao longo de cada rota. A implementação detalhada do código para análise de dados pode ser encontrada no Jupiter Notebook.
 
 \section{Resultados experimentais}
 Ver Figuras 1,2,3.  
@@ -85,11 +87,8 @@ Ver Figuras 1,2,3.
   \caption{}\label{fig:}
 \end{figure}
 
-
 \section{Discussão e Conclusão}
-A intensidade de sinal de WiFi dentro dos predios do IME-USP é maior nas salas de aula, um pouco
-menor nos corredores, e menor ainda nas areas externas dos predios.  
 
-As variacoes de RSSI indicam que a intensidade de WiFi nem é sempre constante, e pode mudar
-dependendo do horario, dia, tempo, entre outros fatores. 
+A cobertura da rede Eduroam mostrou-se adequada dentro dos prédios do instituto e seguiu padrões esperados em seus arredores. A seção com menor intensidade de sinal foi a Travessa  V, enquanto que as áreas perto dos prédios principais (edifício Vila Nova Artigas, IME - bloco A e B, CCSL) possuíram a melhor cobertura de sinal. Porém, apesar do sinal ser forte dentro dos prédios, do lado de fora, mesmo logo ao lado deles, a intensidade cai drasticamente. Contudo, esse comportamento é esperado, considerando a grossura das paredes do instituto. Em conclusão, há uma boa cobertura WiFi nas áreas mais importantes do IME, mas tal cobertura não se estende para as áreas ao ar livre.
+
 \end{document}
